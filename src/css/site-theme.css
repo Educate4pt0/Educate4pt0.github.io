@@ -1,0 +1,141 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  /* Orange primary color for light mode */
+  --ifm-color-primary: #ff6b35;
+  --ifm-color-primary-dark: #ff5516;
+  --ifm-color-primary-darker: #ff4a09;
+  --ifm-color-primary-darkest: #e63d00;
+  --ifm-color-primary-light: #ff8154;
+  --ifm-color-primary-lighter: #ff8c61;
+  --ifm-color-primary-lightest: #ffa881;
+  
+  /* Blue accent colors */
+  --ifm-color-secondary: #004e89;
+  --ifm-color-info: #1a7fa0;
+  
+  /* Text colors */
+  --ifm-font-color-base: #1a1a1a;
+  --ifm-font-color-secondary: #4a4a4a;
+  --ifm-heading-color: #002642;
+  
+  /* Background colors */
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #f8f9fa;
+  
+  /* Section background colors for alternating sections */
+  --ifm-section-bg-primary: #ffffff;
+  --ifm-section-bg-secondary: #f0f4f8;
+  --ifm-section-bg-accent: #fff5f0;
+  
+  /* Card and container backgrounds */
+  --ifm-card-background-color: #ffffff;
+  --ifm-hover-overlay: rgba(0, 78, 137, 0.05);
+  
+  /* Code colors */
+  --ifm-code-font-size: 95%;
+  --ifm-code-background: #f5f5f5;
+  --ifm-code-color: #e63d00;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 107, 53, 0.1);
+  
+  /* Link colors */
+  --ifm-link-color: #004e89;
+  --ifm-link-hover-color: #ff6b35;
+  --ifm-link-decoration: none;
+  --ifm-link-hover-decoration: underline;
+  
+  /* Heading font sizes and weights */
+  --ifm-h1-font-size: 2.5rem;
+  --ifm-h2-font-size: 2rem;
+  --ifm-h3-font-size: 1.5rem;
+  --ifm-h4-font-size: 1.25rem;
+  --ifm-h5-font-size: 1.125rem;
+  --ifm-h6-font-size: 1rem;
+  --ifm-heading-font-weight: 700;
+  --ifm-font-weight-bold: 600;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  /* Lighter orange for dark mode - better contrast */
+  --ifm-color-primary: #ff8c61;
+  --ifm-color-primary-dark: #ff7a49;
+  --ifm-color-primary-darker: #ff6e3d;
+  --ifm-color-primary-darkest: #ff4a09;
+  --ifm-color-primary-light: #ff9e79;
+  --ifm-color-primary-lighter: #ffaa85;
+  --ifm-color-primary-lightest: #ffc2a3;
+  
+  /* Brighter blue for dark mode */
+  --ifm-color-secondary: #4a9eff;
+  --ifm-color-info: #5ab9e0;
+  
+  /* Text colors for dark mode */
+  --ifm-font-color-base: #e8e8e8;
+  --ifm-font-color-secondary: #b0b0b0;
+  --ifm-heading-color: #ffffff;
+  
+  /* Background colors for dark mode */
+  --ifm-background-color: #1a1a1a;
+  --ifm-background-surface-color: #242424;
+  
+  /* Section background colors for alternating sections */
+  --ifm-section-bg-primary: #1a1a1a;
+  --ifm-section-bg-secondary: #242424;
+  --ifm-section-bg-accent: #2a2220;
+  
+  /* Card and container backgrounds */
+  --ifm-card-background-color: #242424;
+  --ifm-hover-overlay: rgba(90, 185, 224, 0.1);
+  
+  /* Code colors for dark mode */
+  --ifm-code-background: #2d2d2d;
+  --ifm-code-color: #ffaa85;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 140, 97, 0.2);
+  
+  /* Link colors for dark mode */
+  --ifm-link-color: #5ab9e0;
+  --ifm-link-hover-color: #ff8c61;
+}
+
+/* Utility classes for alternating section backgrounds */
+.section-primary {
+  background-color: var(--ifm-section-bg-primary);
+  padding: 4rem 0;
+}
+
+.section-secondary {
+  background-color: var(--ifm-section-bg-secondary);
+  padding: 4rem 0;
+}
+
+.section-accent {
+  background-color: var(--ifm-section-bg-accent);
+  padding: 4rem 0;
+}
+
+/* Alternating section pattern - use these for landing pages */
+.section-alt:nth-of-type(odd) {
+  background-color: var(--ifm-section-bg-primary);
+}
+
+.section-alt:nth-of-type(even) {
+  background-color: var(--ifm-section-bg-secondary);
+}
+
+/* Card hover effect */
+.card {
+  background-color: var(--ifm-card-background-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
