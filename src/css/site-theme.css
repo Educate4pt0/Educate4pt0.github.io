@@ -5,47 +5,113 @@
  */
 
 /* You can override the default Infima variables here. */
+/* Based on https://coolors.co/909cc2-084887-f58a07-f9ab55-f7f5fb */
 :root {
-  /* Orange primary color for light mode */
-  --ifm-color-primary: #ff6b35;
-  --ifm-color-primary-dark: #ff5516;
-  --ifm-color-primary-darker: #ff4a09;
-  --ifm-color-primary-darkest: #e63d00;
-  --ifm-color-primary-light: #ff8154;
-  --ifm-color-primary-lighter: #ff8c61;
-  --ifm-color-primary-lightest: #ffa881;
+  /* Tiger Orange palette - primary brand color */
+  --tiger-orange-50: oklch(96.93% 0.021 72.15);
+  --tiger-orange-100: oklch(94.12% 0.041 73.17);
+  --tiger-orange-200: oklch(88.54% 0.084 72.24);
+  --tiger-orange-300: oklch(83.22% 0.121 70.63);
+  --tiger-orange-400: oklch(78.41% 0.153 66.98);
+  --tiger-orange-500: oklch(73.86% 0.172 59.65);
+  --tiger-orange-600: oklch(62.84% 0.145 60.62);
+  --tiger-orange-700: oklch(51% 0.116 61.76);
+  --tiger-orange-800: oklch(38.56% 0.086 63.44);
+  --tiger-orange-900: oklch(24.87% 0.051 68.67);
+  --tiger-orange-950: oklch(20.68% 0.042 72.88);
+
+  /* Steel Azure palette - primary accent color */
+  --steel-azure-50: oklch(95.64% 0.020 250.38);
+  --steel-azure-100: oklch(91.28% 0.039 249.44);
+  --steel-azure-200: oklch(82.92% 0.079 248.81);
+  --steel-azure-300: oklch(74.66% 0.122 250.09);
+  --steel-azure-400: oklch(67.19% 0.160 251.49);
+  --steel-azure-500: oklch(60.41% 0.194 255);
+  --steel-azure-600: oklch(51.50% 0.162 254.60);
+  --steel-azure-700: oklch(41.95% 0.130 254.44);
+  --steel-azure-800: oklch(32.02% 0.092 253.18);
+  --steel-azure-900: oklch(21.02% 0.054 251.17);
+  --steel-azure-950: oklch(17.73% 0.041 247.67);
+
+  /* Sandy Brown palette - secondary warm accent */
+  --sandy-brown-50: oklch(96.93% 0.021 72.15);
+  --sandy-brown-100: oklch(93.73% 0.041 68.49);
+  --sandy-brown-200: oklch(87.89% 0.081 68.84);
+  --sandy-brown-300: oklch(82.29% 0.121 66.68);
+  --sandy-brown-400: oklch(77.07% 0.153 62.97);
+  --sandy-brown-500: oklch(72.44% 0.175 56.03);
+  --sandy-brown-600: oklch(61.52% 0.147 56.68);
+  --sandy-brown-700: oklch(50.09% 0.118 57.75);
+  --sandy-brown-800: oklch(37.82% 0.086 60.22);
+  --sandy-brown-900: oklch(24.41% 0.052 64.04);
+  --sandy-brown-950: oklch(20.01% 0.041 68.77);
+
+  /* Lavender Grey palette - secondary cool neutral */
+  --lavender-grey-50: oklch(95.61% 0.008 278.64);
+  --lavender-grey-100: oklch(91.30% 0.016 269.97);
+  --lavender-grey-200: oklch(82.21% 0.033 272.20);
+  --lavender-grey-300: oklch(73.13% 0.051 271.03);
+  --lavender-grey-400: oklch(63.64% 0.071 271.19);
+  --lavender-grey-500: oklch(54.18% 0.090 270.33);
+  --lavender-grey-600: oklch(46.21% 0.077 270.29);
+  --lavender-grey-700: oklch(38.14% 0.060 269.73);
+  --lavender-grey-800: oklch(29.37% 0.043 270.62);
+  --lavender-grey-900: oklch(20.16% 0.023 268.85);
+  --lavender-grey-950: oklch(17.03% 0.017 273.58);
+
+  /* Ghost White palette - neutral greys */
+  --ghost-white-50: oklch(95.16% 0.015 298.56);
+  --ghost-white-100: oklch(90.32% 0.029 300.97);
+  --ghost-white-200: oklch(80.32% 0.063 300.56);
+  --ghost-white-300: oklch(70.34% 0.096 299.47);
+  --ghost-white-400: oklch(60.07% 0.133 297.46);
+  --ghost-white-500: oklch(50.18% 0.165 294.98);
+  --ghost-white-600: oklch(42.88% 0.139 295.07);
+  --ghost-white-700: oklch(35.48% 0.109 296.01);
+  --ghost-white-800: oklch(27.45% 0.079 296.57);
+  --ghost-white-900: oklch(18.96% 0.042 297.60);
+  --ghost-white-950: oklch(16.09% 0.034 296.86);
+
+  /* Primary brand colors - Tiger Orange for light mode */
+  --ifm-color-primary: var(--tiger-orange-500);
+  --ifm-color-primary-dark: var(--tiger-orange-600);
+  --ifm-color-primary-darker: var(--tiger-orange-700);
+  --ifm-color-primary-darkest: var(--tiger-orange-800);
+  --ifm-color-primary-light: var(--tiger-orange-400);
+  --ifm-color-primary-lighter: var(--tiger-orange-300);
+  --ifm-color-primary-lightest: var(--tiger-orange-200);
   
-  /* Blue accent colors */
-  --ifm-color-secondary: #004e89;
-  --ifm-color-info: #1a7fa0;
+  /* Accent colors - Steel Azure */
+  --ifm-color-secondary: var(--steel-azure-700);
+  --ifm-color-info: var(--steel-azure-500);
   
-  /* Text colors */
-  --ifm-font-color-base: #1a1a1a;
-  --ifm-font-color-secondary: #4a4a4a;
-  --ifm-heading-color: #002642;
+  /* Text colors - using Lavender Grey */
+  --ifm-font-color-base: var(--lavender-grey-900);
+  --ifm-font-color-secondary: var(--lavender-grey-600);
+  --ifm-heading-color: var(--steel-azure-800);
   
-  /* Background colors */
-  --ifm-background-color: #ffffff;
-  --ifm-background-surface-color: #f8f9fa;
+  /* Background colors - Ghost White neutrals */
+  --ifm-background-color: var(--ghost-white-50);
+  --ifm-background-surface-color: var(--ghost-white-100);
   
   /* Section background colors for alternating sections */
-  --ifm-section-bg-primary: #ffffff;
-  --ifm-section-bg-secondary: #f0f4f8;
-  --ifm-section-bg-accent: #fff5f0;
+  --ifm-section-bg-primary: var(--ghost-white-50);
+  --ifm-section-bg-secondary: var(--steel-azure-50);
+  --ifm-section-bg-accent: var(--tiger-orange-50);
   
   /* Card and container backgrounds */
-  --ifm-card-background-color: #ffffff;
-  --ifm-hover-overlay: rgba(0, 78, 137, 0.05);
+  --ifm-card-background-color: var(--ghost-white-50);
+  --ifm-hover-overlay: oklch(60.41% 0.194 255 / 0.05);
   
   /* Code colors */
   --ifm-code-font-size: 95%;
-  --ifm-code-background: #f5f5f5;
-  --ifm-code-color: #e63d00;
-  --docusaurus-highlighted-code-line-bg: rgba(255, 107, 53, 0.1);
+  --ifm-code-background: var(--lavender-grey-50);
+  --ifm-code-color: var(--tiger-orange-700);
+  --docusaurus-highlighted-code-line-bg: oklch(73.86% 0.172 59.65 / 0.1);
   
   /* Link colors */
-  --ifm-link-color: #004e89;
-  --ifm-link-hover-color: #ff6b35;
+  --ifm-link-color: var(--steel-azure-700);
+  --ifm-link-hover-color: var(--tiger-orange-600);
   --ifm-link-decoration: none;
   --ifm-link-hover-decoration: underline;
   
@@ -62,45 +128,45 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  /* Lighter orange for dark mode - better contrast */
-  --ifm-color-primary: #ff8c61;
-  --ifm-color-primary-dark: #ff7a49;
-  --ifm-color-primary-darker: #ff6e3d;
-  --ifm-color-primary-darkest: #ff4a09;
-  --ifm-color-primary-light: #ff9e79;
-  --ifm-color-primary-lighter: #ffaa85;
-  --ifm-color-primary-lightest: #ffc2a3;
+  /* Primary brand colors - Lighter Tiger Orange for dark mode */
+  --ifm-color-primary: var(--tiger-orange-400);
+  --ifm-color-primary-dark: var(--tiger-orange-500);
+  --ifm-color-primary-darker: var(--tiger-orange-600);
+  --ifm-color-primary-darkest: var(--tiger-orange-700);
+  --ifm-color-primary-light: var(--tiger-orange-300);
+  --ifm-color-primary-lighter: var(--tiger-orange-200);
+  --ifm-color-primary-lightest: var(--tiger-orange-100);
   
-  /* Brighter blue for dark mode */
-  --ifm-color-secondary: #4a9eff;
-  --ifm-color-info: #5ab9e0;
+  /* Accent colors - Brighter Steel Azure for dark mode */
+  --ifm-color-secondary: var(--steel-azure-400);
+  --ifm-color-info: var(--steel-azure-300);
   
-  /* Text colors for dark mode */
-  --ifm-font-color-base: #e8e8e8;
-  --ifm-font-color-secondary: #b0b0b0;
-  --ifm-heading-color: #ffffff;
+  /* Text colors - using lighter Lavender Grey */
+  --ifm-font-color-base: var(--lavender-grey-100);
+  --ifm-font-color-secondary: var(--lavender-grey-400);
+  --ifm-heading-color: var(--ghost-white-50);
   
-  /* Background colors for dark mode */
-  --ifm-background-color: #1a1a1a;
-  --ifm-background-surface-color: #242424;
+  /* Background colors - Dark Ghost White */
+  --ifm-background-color: var(--ghost-white-900);
+  --ifm-background-surface-color: var(--ghost-white-800);
   
   /* Section background colors for alternating sections */
-  --ifm-section-bg-primary: #1a1a1a;
-  --ifm-section-bg-secondary: #242424;
-  --ifm-section-bg-accent: #2a2220;
+  --ifm-section-bg-primary: var(--ghost-white-900);
+  --ifm-section-bg-secondary: var(--lavender-grey-900);
+  --ifm-section-bg-accent: var(--sandy-brown-950);
   
   /* Card and container backgrounds */
-  --ifm-card-background-color: #242424;
-  --ifm-hover-overlay: rgba(90, 185, 224, 0.1);
+  --ifm-card-background-color: var(--ghost-white-800);
+  --ifm-hover-overlay: oklch(74.66% 0.122 250.09 / 0.1);
   
   /* Code colors for dark mode */
-  --ifm-code-background: #2d2d2d;
-  --ifm-code-color: #ffaa85;
-  --docusaurus-highlighted-code-line-bg: rgba(255, 140, 97, 0.2);
+  --ifm-code-background: var(--lavender-grey-900);
+  --ifm-code-color: var(--sandy-brown-300);
+  --docusaurus-highlighted-code-line-bg: oklch(78.41% 0.153 66.98 / 0.2);
   
   /* Link colors for dark mode */
-  --ifm-link-color: #5ab9e0;
-  --ifm-link-hover-color: #ff8c61;
+  --ifm-link-color: var(--steel-azure-300);
+  --ifm-link-hover-color: var(--tiger-orange-400);
 }
 
 /* Utility classes for alternating section backgrounds */
