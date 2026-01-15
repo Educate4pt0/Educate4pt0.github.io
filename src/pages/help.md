@@ -8,11 +8,12 @@ We're a small non-profit team of student volunteers passionate about inspiring y
 
 - **Spread the Word**: Share our website and resources with friends, family, and on social media to help us reach a wider audience.
 - **Volunteer**: If you have skills in anything STEM-related, content creation, web development, or marketing, consider volunteering your time to help us create and improve our resources.
-- **Donate**: Financial contributions help us maintain our website, create new content, and organize events. Every little bit helps!
+- **Translate**: We could always use a hand to translate our work, if you're multilingual and have a minute, please consider contributing.
+- **Donate**: Financial contributions help us maintain our website, create new content, and organize events. Every cent makes a difference!
 - **Provide Feedback**: Let us know what you think about our resources and suggest topics you'd like us to cover.
 
 
-:::tip Every small bit helps!
+:::tip Every little bit helps!
 
 Whether it's sharing our mission, volunteering your skills, donating funds, or providing feedback, your support makes a significant difference in inspiring the next generation. Thank you for being part of our journey!
 

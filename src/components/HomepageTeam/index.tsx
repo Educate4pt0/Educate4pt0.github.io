@@ -24,7 +24,7 @@ const FeatureList: TeamMemberItem[] = [
   {
     name: 'Dylan Kirby',
     Img: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    position: 'Course Curator | Site Adminitrator',
+    position: 'Course Curator | Site Administrator',
     blurb: (<>
       The person behind the tech, if it runs, it's because of him, if it doesn't it's someone else's fault.
     </>),
