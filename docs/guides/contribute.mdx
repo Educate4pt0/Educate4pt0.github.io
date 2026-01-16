@@ -46,7 +46,7 @@ git checkout -b guides/update-example-tutorial
 git checkout -b admin/update-nodejs-version
 ```
 
-Replace `<category>` and `<name>` with appropriate values for your contribution. Available options are listed below:
+Replace `<category>` and `<description>` with appropriate values for your contribution. Available options are listed below:
 
 - **Categories**:
     - `tutorials`: For work done on tutorials
@@ -54,3 +54,14 @@ Replace `<category>` and `<name>` with appropriate values for your contribution.
     - `admin`: For administrative tasks and maintenance
     - *If you think another category is needed, please open an issue to discuss it first.*
 - **Description**: A brief descriptive name for your contribution (use hyphens to separate words)
+
+### Pre-commit checks
+
+Enable the repository's pre-commit hook so the same checks run locally before pushing:
+
+```bash
+git config core.hooksPath .githooks
+chmod +x .githooks/pre-commit
+```
+
+The hook enforces the `<category>/<description>` branch naming pattern (`tutorials`, `guides`, or `admin` categories with hyphenated descriptions) and runs `npm run typecheck` followed by `npm run build` to match the deployment pipeline.

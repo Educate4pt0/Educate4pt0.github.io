@@ -1,0 +1,33 @@
+#!/usr/bin/env sh
+set -eu
+
+# Enforce branch naming and run key checks before committing.
+
+branch="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || true)"
+
+if [ -z "$branch" ] || [ "$branch" = "HEAD" ]; then
+  echo "Detached HEAD; skipping branch name validation."
+else
+  case "$branch" in
+    main|master)
+      echo "On $branch; skipping branch name validation."
+      ;;
+    *)
+      if ! printf '%s\n' "$branch" | grep -Eq '^(tutorials|guides|admin)/[a-z0-9]+(-[a-z0-9]+)*$'; then
+        cat <<'EOF'
+Branch name must match <category>/<description>
+- category: tutorials|guides|admin
+- description: lower-case words separated by hyphens
+Examples: tutorials/add-python-basics, guides/update-example-tutorial
+EOF
+        exit 1
+      fi
+      ;;
+  esac
+fi
+
+echo "Running npm run typecheck..."
+npm run typecheck
+
+echo "Running npm run build..."
+npm run build
