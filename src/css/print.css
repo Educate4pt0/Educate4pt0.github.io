@@ -126,4 +126,78 @@
   [class*="TOC"] {
     display: none;
   }
+
+  /* Quiz component print styles */
+  [data-quiz-qa] {
+    page-break-inside: avoid;
+  }
+
+  [data-quiz-qa][open] > summary::before {
+    content: '▼ ';
+  }
+
+  [data-quiz-qa] summary {
+    font-weight: 700;
+  }
+
+  [data-quiz-answer] {
+    display: block !important;
+  }
+
+  [data-answer-item] {
+    display: block !important;
+  }
+
+  [data-quiz-question] {
+    page-break-inside: avoid;
+    border: 1px solid #000;
+  }
+
+  [data-quiz-options] {
+    margin-top: 1rem;
+  }
+
+  [data-quiz-option] {
+    border: 1px solid #000;
+    page-break-inside: avoid;
+  }
+
+  /* Highlight selected correct answers in green */
+  [data-quiz-option][data-correct="true"] input:checked {
+    accent-color: #22c55e;
+  }
+
+  [data-quiz-option][data-correct="true"]:has(input:checked) {
+    border: 2px solid #22c55e;
+    background-color: rgba(34, 197, 94, 0.2) !important;
+  }
+
+  [data-quiz-option][data-correct="true"]:has(input:checked) span::after {
+    content: ' ✓';
+    color: #22c55e;
+    font-weight: 600;
+  }
+
+  /* Mark all correct answers */
+  [data-quiz-option][data-correct="true"] {
+    border: 2px solid #22c55e;
+    background-color: rgba(34, 197, 94, 0.2) !important;
+  }
+
+  [data-quiz-option][data-correct="true"] span::after {
+    content: ' [CORRECT]';
+    color: #22c55e;
+    font-weight: 600;
+  }
+
+  /* Hide all interactive buttons */
+  [data-quiz-buttons] {
+    display: none !important;
+  }
+
+  /* Force all correct answers to show */
+  [data-quiz-option] input[type="radio"]:checked,
+  [data-quiz-option] input[type="checkbox"]:checked {
+    accent-color: #000;
+  }
 }

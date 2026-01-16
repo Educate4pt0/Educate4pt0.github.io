@@ -110,7 +110,7 @@
   --docusaurus-highlighted-code-line-bg: oklch(73.86% 0.172 59.65 / 0.1);
   
   /* Link colors */
-  --ifm-link-color: var(--steel-azure-700);
+  --ifm-link-color: var(--steel-azure-600);
   --ifm-link-hover-color: var(--tiger-orange-600);
   --ifm-link-decoration: none;
   --ifm-link-hover-decoration: underline;

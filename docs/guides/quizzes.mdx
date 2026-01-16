@@ -1,0 +1,71 @@
+---
+sidebar_position: 2
+---
+
+# Using Quizzes
+
+Add interactive quizzes to your MDX documentation to assess learner understanding.
+
+## Quick Start
+
+Import the Quiz component and create a questions array:
+
+```mdx
+import { Quiz } from '@site/src/components/Quiz';
+
+<Quiz
+  questions={[
+    {
+      question: "What is your question?",
+      answers: ["The correct answer"],
+      distractors: ["Wrong answer 1", "Wrong answer 2"]
+    }
+  ]}
+/>
+```
+
+## Question Types
+
+The component automatically detects the type based on your data:
+
+- **Q&A**: Use a single answer, no distractors → shows as expandable answer
+- **Single-Select**: Use one answer + distractors → shows multiple choice
+- **Multi-Select**: Use multiple answers + distractors → shows checkboxes
+
+## Examples
+
+### Simple Q&A
+
+```mdx
+{
+  question: "What is 2 + 2?",
+  answers: ["4"]
+}
+```
+
+### Multiple Choice
+
+```mdx
+{
+  question: "What is Scratch?",
+  answers: ["A visual programming language developed by MIT"],
+  distractors: ["A text-based programming language", "Computer hardware"]
+}
+```
+
+### Multi-Select
+
+```mdx
+{
+  question: "Select all programming concepts:",
+  answers: ["Variables", "Loops", "Functions"],
+  distractors: ["Pizza", "Skateboard"]
+}
+```
+
+## Features
+
+- [X] Automatic option shuffling
+- [X] Immediate feedback (correct/incorrect)
+- [X] Light/dark mode support
+- [X] Print-friendly (shows answers when printing)

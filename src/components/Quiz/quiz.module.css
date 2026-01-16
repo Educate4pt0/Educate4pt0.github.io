@@ -1,0 +1,239 @@
+.quizContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.qaQuestion {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 1.5rem;
+  background-color: var(--ifm-color-emphasis-100);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.qaQuestion:hover {
+  border-color: var(--ifm-color-emphasis-500);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.qaSummary {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ifm-color-content);
+  list-style: none;
+  margin: 0;
+  user-select: none;
+}
+
+.qaSummary::-webkit-details-marker {
+  display: none;
+}
+
+.qaSummary::before {
+  content: '> ';
+  display: inline-block;
+  margin-right: 0.5rem;
+  transform: rotate(0deg);
+  transition: transform 0.2s ease;
+}
+
+.qaQuestion[open] > .qaSummary::before {
+  transform: rotate(90deg);
+}
+
+.qaAnswer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.answerItem {
+  padding: 0.75rem 1rem;
+  background-color: rgba(34, 197, 94, 0.1);
+  border-left: 4px solid #22c55e;
+  color: var(--ifm-color-content);
+  border-radius: 4px;
+}
+
+.questionWrapper {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 1.5rem;
+  background-color: var(--ifm-color-emphasis-100);
+  transition: all 0.3s ease;
+}
+
+.questionWrapper:hover {
+  border-color: var(--ifm-color-emphasis-500);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.question {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ifm-color-content);
+}
+
+.optionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: var(--ifm-color-background);
+  user-select: none;
+}
+
+.option:hover {
+  border-color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-primary-lighter);
+}
+
+.option input[type="radio"],
+.option input[type="checkbox"] {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--ifm-color-primary);
+}
+
+.option input[type="radio"]:disabled,
+.option input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+}
+
+.optionText {
+  flex: 1;
+}
+
+.option.selected {
+  border-color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-primary-lighter);
+}
+
+.option.correct {
+  border-color: #22c55e;
+  background-color: rgba(34, 197, 94, 0.1);
+}
+
+.option.correct .optionText::after {
+  content: ' ✓';
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.option.incorrect {
+  border-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.option.incorrect .optionText::after {
+  content: ' ✗';
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.buttonGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.button {
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.submitButton {
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: var(--ifm-color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.submitButton:disabled {
+  background-color: var(--ifm-color-emphasis-300);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.resetButton {
+  background-color: var(--ifm-color-emphasis-500);
+  color: white;
+}
+
+.resetButton:hover {
+  background-color: var(--ifm-color-emphasis-600);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.feedback {
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.feedback.correct {
+  background-color: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+  border-left: 4px solid #22c55e;
+}
+
+.feedback.incorrect {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border-left: 4px solid #ef4444;
+}
+
+@media (max-width: 768px) {
+  .questionWrapper {
+    padding: 1rem;
+  }
+
+  .option {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .feedback {
+    width: 100%;
+  }
+}

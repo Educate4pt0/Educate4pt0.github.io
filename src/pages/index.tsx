@@ -68,8 +68,9 @@ function HomepageGettingStarted() {
             page to explore various ways you can get involved. Whether you're looking to volunteer, donate, or spread the word, every bit of support helps us make a difference in STEAM education.
           </p>
           <p>
-            If you're interested in using our resources, please visit our{' '}<Link to="/docs/intro">Resources</Link>{' '}
+            Want to use our resources? Please visit our{' '}<Link to="/docs/intro">Resources</Link>{' '}
             page to access our growing library of tutorials and curriculum materials. These resources are designed to be easy to use and implement, making it simple for educators and mentors to bring quality STEAM education to their learners.
+            If you like what you see, consider contributing.
           </p>
 
         </div>

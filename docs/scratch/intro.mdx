@@ -5,6 +5,7 @@ sidebar_position: 1
 import DocusaurusSvg from './img/Scratchlogo.svg';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { Quiz } from '@site/src/components/Quiz';
 
 # Introduction to Scratch
 
@@ -78,3 +79,36 @@ Head over to the [Getting Started](https://www.scratchfoundation.org/learn/learn
 :::
 
 Walk through the tutorial step-by-step, encouraging learners to experiment with different blocks and features as they go along. Make sure to provide assistance and answer any questions that arise during the process. Promote interactivity and groupwork among learners (especially if they are new, or your devices are shared) to help them learn from each other.
+
+## Quiz
+
+To assess understanding, try the following quiz questions:
+
+<Quiz
+  questions={[
+    {
+      question: "What is Scratch?",
+      answers: ["A visual programming language developed by MIT"],
+      distractors: [
+        "A text-based programming language",
+        "A type of computer hardware"
+      ]
+    },
+    {
+      question: "How do you add a new sprite in Scratch?",
+      answers: ["Click on the \"Choose a Sprite\" button in the sprite library"],
+      distractors: [
+        "Right click on a sprite and click delete",
+        "Drag and drop an image from the desktop"
+      ]
+    },
+    {
+      question: "long answer type question",
+      answers: ["This is the correct answer"],
+    },
+    {
+      question: "long answer type question",
+      answers: ["This is the correct answer", "stuff"],
+    }
+  ]}
+/>

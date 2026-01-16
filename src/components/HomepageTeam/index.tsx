@@ -14,7 +14,7 @@ const FeatureList: TeamMemberItem[] = [
   {
     name: 'Thomas Kirby',
     Img: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-    position: 'Director',
+    position: 'CEO',
     blurb: (
       <>
         Head honcho, the man with the plan. Completing his MEng in Mechatronics - so you know it's guud.
@@ -24,17 +24,17 @@ const FeatureList: TeamMemberItem[] = [
   {
     name: 'Dylan Kirby',
     Img: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    position: 'Course Curator | Site Administrator',
+    position: 'CTO',
     blurb: (<>
-      The person behind the tech, if it runs, it's because of him, if it doesn't it's someone else's fault.
+      A full-time full-stack Software Developer, he's the person behind the tech, if it runs, it's because of him, if it doesn't it's someone else's fault.
     </>),
   },
   {
-    name: 'Example',
+    name: 'Teagan Minkley',
     Img: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    position: 'Lorem Ipsum',
+    position: 'Course Curator & Reviewer',
     blurb: (<>
-      A really cool blurb that I put a lot of effort into writing.
+      Studing for her BSc (Hons) in Applied Mathematics, she double checks our content for quality and accuracy.
     </>),
   },
   {
