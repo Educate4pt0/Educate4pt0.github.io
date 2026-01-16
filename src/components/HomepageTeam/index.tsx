@@ -13,7 +13,7 @@ type TeamMemberItem = {
 const FeatureList: TeamMemberItem[] = [
   {
     name: 'Thomas Kirby',
-    Img: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Img: require('@site/static/img/pdv-floppy-disks.svg').default,
     position: 'CEO',
     blurb: (
       <>
@@ -23,7 +23,7 @@ const FeatureList: TeamMemberItem[] = [
   },
   {
     name: 'Dylan Kirby',
-    Img: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    Img: require('@site/static/img/pdv-floppy-disks.svg').default,
     position: 'CTO',
     blurb: (<>
       A full-time full-stack Software Developer, he's the person behind the tech, if it runs, it's because of him, if it doesn't it's someone else's fault.
@@ -31,7 +31,7 @@ const FeatureList: TeamMemberItem[] = [
   },
   {
     name: 'Teagan Minkley',
-    Img: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Img: require('@site/static/img/pdv-floppy-disks.svg').default,
     position: 'Course Curator & Reviewer',
     blurb: (<>
       Studing for her BSc (Hons) in Applied Mathematics, she double checks our content for quality and accuracy.
@@ -39,7 +39,7 @@ const FeatureList: TeamMemberItem[] = [
   },
   {
     name: 'Example',
-    Img: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Img: require('@site/static/img/pdv-floppy-disks.svg').default,
     position: 'Lorem Ipsum',
     blurb: (<>
       A really cool blurb that I put a lot of effort into writing.
@@ -47,7 +47,7 @@ const FeatureList: TeamMemberItem[] = [
   },
   {
     name: 'Example',
-    Img: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Img: require('@site/static/img/pdv-floppy-disks.svg').default,
     position: 'Lorem Ipsum',
     blurb: (<>
       A really cool blurb that I put a lot of effort into writing.

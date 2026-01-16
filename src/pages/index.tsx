@@ -3,11 +3,11 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageMission from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
-import HomepageTeam from '../components/HomepageTeam';
+import HomepageTeam from '@site/src/components/HomepageTeam';
+import HomepageMission from '@site/src/components/HomepageMission';
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();

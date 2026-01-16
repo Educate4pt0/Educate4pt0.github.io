@@ -12,7 +12,7 @@ type MissionItem = {
 const FeatureList: MissionItem[] = [
   {
     title: 'Empowering Tomorrow\'s Innovators',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    Svg: require('@site/static/img/pdv-laptop-and-notebook.svg').default,
     description: (
       <>
         Cultivating critical thinking and problem-solving abilities that extend far beyond traditional classroom boundaries.
@@ -21,7 +21,7 @@ const FeatureList: MissionItem[] = [
   },
   {
     title: 'Mentorship & Vision',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('@site/static/img/pdv-hands.svg').default,
     description: (
       <>
         Shaping futures through meaningful dialogue, real-world insights, and proven pathways to success.
@@ -30,7 +30,7 @@ const FeatureList: MissionItem[] = [
   },
   {
     title: 'Learning Excellence',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/pdv-lightbulb.svg').default,
     description: (
       <>
         Fostering a passion for lifelong learning and unlocking each student's unique potential through engaging education.
