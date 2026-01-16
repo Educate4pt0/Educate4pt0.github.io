@@ -44,13 +44,34 @@ function HomepageFocus() {
           </p>
           <p>
             We've created this platform as a comprehensive <strong>resource library for STEAM education</strong>.
-            Our goal is to provide volunteers, educators, and mentors with <strong>ready-to-use lesson plans</strong> and curriculum materials that can be printed out and delivered in approximately 40-minute sessions.
-            Whether it's an introduction to programming in <em>Scratch</em>, learning how to create effective <em>PowerPoint presentations</em>, or exploring other STEAM concepts, we're building an accessible catalogue of engaging lessons that require minimal preparation.
+            Our goal is to provide volunteers, educators, and mentors with <strong>ready-to-use tutorials</strong> and curriculum materials that can be printed out and delivered in approximately 40-minute sessions.
+            Whether it's an introduction to programming in <em>Scratch</em>, learning how to create effective <em>PowerPoint presentations</em>, or exploring other STEAM concepts, we're building an accessible catalogue of engaging tutorials that require minimal preparation.
           </p>
           <p>
-            As volunteers, your role is <strong>twofold</strong> - to guide learners through these carefully crafted lessons and to inspire them through conversations about your educational experiences, career choices, and interests.
+            As volunteers, your role is <strong>twofold</strong> - to guide learners through these carefully crafted tutorials and to inspire them through conversations about your educational experiences, career choices, and interests.
             By making quality STEAM education accessible, we aim to spark curiosity and motivate learners to pursue degrees and careers in STEAM fields, ultimately helping them achieve their full potential across all their studies.
           </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HomepageGettingStarted() {
+  const { siteConfig } = useDocusaurusContext();
+  return (
+    <section className='section-alt'>
+      <div className={clsx('container text--center', styles.section)}>
+        <Heading as="h2">Getting Started</Heading>
+        <div>
+          <p>If you're interested in contributing to our mission, please visit our{' '}<Link to="/help">How You Can Help</Link>{' '}
+            page to explore various ways you can get involved. Whether you're looking to volunteer, donate, or spread the word, every bit of support helps us make a difference in STEAM education.
+          </p>
+          <p>
+            If you're interested in using our resources, please visit our{' '}<Link to="/docs/intro">Resources</Link>{' '}
+            page to access our growing library of tutorials and curriculum materials. These resources are designed to be easy to use and implement, making it simple for educators and mentors to bring quality STEAM education to their learners.
+          </p>
+
         </div>
       </div>
     </section>
@@ -68,6 +89,7 @@ export default function Home(): ReactNode {
         <HomepageMission />
         <HomepageFocus />
         <HomepageTeam />
+        <HomepageGettingStarted />
       </main>
     </Layout>
   );

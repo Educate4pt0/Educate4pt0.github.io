@@ -1,0 +1,129 @@
+/**
+ * Print styles for better document output
+ * Prevents code blocks from breaking across pages and preserves styling
+ */
+
+@media print {
+  /* Prevent code blocks from breaking across pages */
+  pre,
+  code,
+  .docusaurus-highlight-code-line,
+  [class*="codeBlock"] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Keep code block styling in print */
+  pre {
+    background-color: inherit;
+    border: 1px solid #ddd;
+  }
+
+  /* Prevent article content from breaking awkwardly */
+  article {
+    page-break-inside: avoid;
+  }
+
+  /* Keep headings with their content */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Prevent images and figures from breaking */
+  img,
+  figure,
+  [class*="figure"] {
+    page-break-inside: avoid;
+  }
+
+  /* Keep lists together */
+  ul,
+  ol {
+    page-break-inside: avoid;
+  }
+
+  li {
+    page-break-inside: avoid;
+  }
+
+  /* Expand details elements */
+  details {
+    display: block !important;
+  }
+
+  details > summary {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  details > *:not(summary) {
+    display: block !important;
+    visibility: visible !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* Expand all tab content */
+  [role="tabpanel"] {
+    display: block !important;
+    visibility: visible !important;
+    height: auto !important;
+  }
+
+  [class*="tab"] {
+    page-break-inside: avoid;
+  }
+
+  /* Docusaurus tabs - improve print layout */
+  .tabs {
+    display: block !important;
+  }
+
+  .tabs__list {
+    display: none !important;
+  }
+
+  /* Show all tab panes with clear delimiters */
+  [role="tabpanel"] {
+    display: block !important;
+    visibility: visible !important;
+    height: auto !important;
+    margin-bottom: 1.5em;
+    padding: 1em;
+    border: 1px solid #999;
+    border-radius: 4px;
+    page-break-inside: avoid;
+  }
+
+  /* Add content before each pane to show the tab name */
+  [role="tabpanel"]::before {
+    content: "Tab Content";
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    color: #666;
+    font-size: 0.9em;
+  }
+
+  /* Preserve colors in print (some browsers don't by default) */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  /* Optional: Hide navigation elements */
+  nav,
+  [class*="navbar"],
+  [class*="sidebar"],
+  [class*="TOC"] {
+    display: none;
+  }
+}

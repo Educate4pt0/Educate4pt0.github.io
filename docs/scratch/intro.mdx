@@ -1,0 +1,88 @@
+---
+sidebar_position: 1
+---
+
+import DocusaurusSvg from './img/Scratchlogo.svg';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Introduction to Scratch
+
+[<DocusaurusSvg />](https://scratch.mit.edu)
+
+Welcome to the Scratch programming tutorials! Scratch is a visual programming language developed by MIT that makes it easy for beginners, especially children, to learn the fundamentals of coding through interactive stories, games, and animations.
+
+The Scratch Foundation provides a free online platform where users can create and share their projects, they have a whole suite of resources and tutorials to help you learn more. Check out their [Learning Library](https://www.scratchfoundation.org/learn/learning-library/) for more information.
+
+
+| Attribute          | Description                                      |
+| :---               | :---                                             |
+| **Grade Level**    | 5+                                               |
+| **Estimated Time** | 45 minutes                                       |
+| **Subject Area**   | Programming, Problem Solving                     |
+| **Objectives**     | Learn the basics of Scratch programming and create a simple interactive project. |
+| **Prerequisites**  | None                                             |
+| **Materials**      | A computer                                       |
+| **Technologies**   | Scratch                                          |
+
+---
+
+## Setup (for educators)
+
+You'll either need to have devices with an internet connection to access the [Scratch website](https://scratch.mit.edu), or have Scratch Desktop installed on your machines.
+
+<Tabs
+  defaultValue="Windows (Powershell)"
+  values={[
+    {label: 'Windows (Powershell)', value: 'Windows (Powershell)'},
+    {label: 'All Platforms Download (Website)', value: 'All Platforms (Website)'},
+    {label: 'Online (Website)', value: 'Online (Website)'},
+  ]}>
+<TabItem value="Windows (Powershell)">
+To install Scratch Desktop on Windows using Powershell, you can use the `winget` package manager. Follow these steps:
+
+1. Open Powershell
+2. Run the following command: `winget install -e --source winget --id MITMediaLab.Scratch.3`
+3. Follow the on-screen instructions to complete the installation.
+</TabItem>
+<TabItem value="All Platforms (Website)">
+For all platforms, you can download Scratch Desktop directly from the official Scratch website. Follow these steps:
+
+1. Go to the [Scratch Download Page](https://scratch.mit.edu/download).
+2. Select the appropriate version for your operating system (Windows, macOS, Chrome OS or Android).
+3. Download and install the application by following the on-screen instructions.
+</TabItem>
+<TabItem value="Online (Website)">
+You can use Scratch directly in your web browser without any installation. Follow these steps:
+
+1. Open your web browser and go to the [Scratch Website](https://scratch.mit.edu).
+2. Click on "Create" in the top navigation bar to start a new project.
+3. You can sign up for a free account to save and share your projects, but it's not required to start coding.
+</TabItem>
+</Tabs>
+
+We recommend testing the setup ahead of time to ensure everything is working properly before starting the tutorial, this will help things run smoothly. It is also best if you familiarise yourself with the Scratch interface and basic features prior to teaching others, but it is not strictly necessary.
+
+```py
+# Example of the large code block for debug / testing of printing
+def hello_world():
+    print("Hello, world!")
+
+class Greeter:
+    def __init__(self, name):
+        self.name = name
+
+    def greet(self):
+        return f"Hello, {self.name}!"
+
+if __name__ == "__main__":
+    hello_world()
+    greeter = Greeter("Scratch")
+    print(greeter.greet())
+```
+
+<details>
+  <summary>Click to expand!</summary>
+
+  Here is the hidden content!
+</details>
