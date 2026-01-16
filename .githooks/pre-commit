@@ -25,9 +25,3 @@ EOF
       ;;
   esac
 fi
-
-echo "Running npm run typecheck..."
-npm run typecheck
-
-echo "Running npm run build..."
-npm run build
