@@ -235,13 +235,13 @@ export default function Brand(): ReactNode {
                                     marginBottom: '1rem',
                                 }}>
                                 <img
-                                    src="/img/docusaurus-social-card.jpg"
+                                    src="/img/social-card.png"
                                     alt="Social Media Card"
                                     style={{ width: '100%', height: 'auto', borderRadius: '4px' }}
                                 />
                             </div>
                             <p style={{ fontSize: '0.9rem', color: 'var(--ifm-font-color-secondary)' }}>
-                                <a href="/img/docusaurus-social-card.jpg" download="educate4pt0-social-card.jpg">Download Social Card</a>
+                                <a href="/img/social-card.png" download="educate4pt0-social-card.png">Download Social Card</a>
                             </p>
                         </div>
                     </section>
