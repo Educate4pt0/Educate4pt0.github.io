@@ -14,9 +14,12 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
+          <img src="/img/logo.svg" alt="Educate4.0 Logo" style={{ height: '10rem' }} />
+          <Heading as="h1" className="hero__title" style={{ margin: 0 }}>
+            {siteConfig.title}
+          </Heading>
+        </div>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link

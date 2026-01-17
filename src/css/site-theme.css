@@ -115,6 +115,13 @@
   --ifm-link-decoration: none;
   --ifm-link-hover-decoration: underline;
   
+  /* Footer colors for light mode */
+  --ifm-footer-background-color: var(--lavender-grey-800);
+  --ifm-footer-color: var(--ghost-white-100);
+  --ifm-footer-link-color: var(--steel-azure-200);
+  --ifm-footer-link-hover-color: var(--tiger-orange-300);
+  --ifm-footer-title-color: var(--ghost-white-50);
+  
   /* Heading font sizes and weights */
   --ifm-h1-font-size: 2.5rem;
   --ifm-h2-font-size: 2rem;
@@ -167,6 +174,13 @@
   /* Link colors for dark mode */
   --ifm-link-color: var(--steel-azure-300);
   --ifm-link-hover-color: var(--tiger-orange-400);
+  
+  /* Footer colors for dark mode */
+  --ifm-footer-background-color: var(--ghost-white-950);
+  --ifm-footer-color: var(--lavender-grey-200);
+  --ifm-footer-link-color: var(--steel-azure-300);
+  --ifm-footer-link-hover-color: var(--tiger-orange-400);
+  --ifm-footer-title-color: var(--ghost-white-100);
 }
 
 /* Utility classes for alternating section backgrounds */
@@ -192,6 +206,48 @@
 
 .section-alt:nth-of-type(even) {
   background-color: var(--ifm-section-bg-secondary);
+}
+
+/* Footer styling - improve contrast in light mode */
+.footer--dark {
+  --ifm-footer-background-color: var(--lavender-grey-800);
+}
+
+.footer--dark .footer__link-item {
+  color: var(--steel-azure-200);
+}
+
+.footer--dark .footer__link-item:hover {
+  color: var(--tiger-orange-300);
+}
+
+.footer--dark .footer__title {
+  color: var(--ghost-white-50);
+}
+
+.footer--dark .footer__copyright {
+  color: var(--ghost-white-100);
+}
+
+/* Footer styling for dark mode */
+[data-theme='dark'] .footer--dark {
+  --ifm-footer-background-color: var(--ghost-white-950);
+}
+
+[data-theme='dark'] .footer--dark .footer__link-item {
+  color: var(--steel-azure-300);
+}
+
+[data-theme='dark'] .footer--dark .footer__link-item:hover {
+  color: var(--tiger-orange-400);
+}
+
+[data-theme='dark'] .footer--dark .footer__title {
+  color: var(--ghost-white-100);
+}
+
+[data-theme='dark'] .footer--dark .footer__copyright {
+  color: var(--lavender-grey-200);
 }
 
 /* Card hover effect */
