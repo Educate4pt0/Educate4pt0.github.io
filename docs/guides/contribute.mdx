@@ -73,11 +73,31 @@ The hook enforces the `<category>/<description>` branch naming pattern (`tutoria
 
 ## Making Changes
 
-You can now make changes to the codebase using your preferred code editor. Once you've made your changes, you can stage them for commit using the following command:
+You can now make changes to the codebase using your preferred code editor.
+
+:::tip Live Preview
+To see your changes in real-time, you can run the development server with the following command:
+
+```bash
+npm run start
+```
+This will start a local server, and you can view your changes in the browser at `http://localhost:3000`.
+:::
+
+
+Once you've made your changes, you can stage them for commit using the following command:
 
 ```bash
 git add <path-to-file1> <path-to-file2> ...
 ```
+
+:::tip VSCode users
+You can also stage changes directly from the Source Control panel in Visual Studio Code by clicking the "+" icon next to the files you've modified.
+
+Write an informative commit message that describes the changes you've made. This helps maintainers understand the purpose of your contribution.
+
+And press the "publish branch" or "sync changes" button in the Source Control panel to push your changes to your forked repository.
+:::
 
 Replace `<path-to-file1>`, `<path-to-file2>`, etc. with the paths to the files you've modified or added.
 

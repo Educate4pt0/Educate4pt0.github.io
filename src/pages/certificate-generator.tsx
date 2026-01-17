@@ -2,7 +2,14 @@ import React, { useState, useRef } from 'react';
 import Layout from '@theme/Layout';
 import { TEMPLATE_REGISTRY } from '@site/src/components/Certificate';
 import styles from './certificate-generator.module.css';
+import html2canvas from 'html2canvas';
+import JSZip from 'jszip';
 
+interface CertificateData {
+    id: number;
+    achieverName: string;
+    params: Record<string, string>;
+}
 
 interface GeneratedURL {
     id: number;
@@ -14,7 +21,10 @@ export default function CertificateGeneratorPage() {
     const [selectedTemplate, setSelectedTemplate] = useState<string>('educate4pt0');
     const [formData, setFormData] = useState<Record<string, string>>({});
     const [generatedUrls, setGeneratedUrls] = useState<GeneratedURL[]>([]);
+    const [certificateData, setCertificateData] = useState<CertificateData[]>([]);
     const [csvError, setCsvError] = useState<string>('');
+    const [isGenerating, setIsGenerating] = useState<boolean>(false);
+    const [generationProgress, setGenerationProgress] = useState<string>('');
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     const currentTemplate = TEMPLATE_REGISTRY[selectedTemplate];
@@ -93,14 +103,21 @@ export default function CertificateGeneratorPage() {
 
                 // Generate URLs for each row
                 const urls: GeneratedURL[] = [];
+                const certData: CertificateData[] = [];
+
                 for (let i = 1; i < lines.length; i++) {
                     const values = lines[i].split(',').map((v) => v.trim());
+                    if (values.every(v => !v)) continue; // Skip empty rows
+
                     const params = new URLSearchParams();
                     params.set('template', selectedTemplate);
+
+                    const rowParams: Record<string, string> = { template: selectedTemplate };
 
                     headers.forEach((header, index) => {
                         if (values[index]) {
                             params.set(header, values[index]);
+                            rowParams[header] = values[index];
                         }
                     });
 
@@ -110,9 +127,16 @@ export default function CertificateGeneratorPage() {
                         achieverName,
                         url: `${window.location.origin}/certificate?${params.toString()}`,
                     });
+
+                    certData.push({
+                        id: i,
+                        achieverName,
+                        params: rowParams,
+                    });
                 }
 
                 setGeneratedUrls(urls);
+                setCertificateData(certData);
                 setCsvError('');
             } catch (error) {
                 setCsvError(`Error parsing CSV: ${error.message}`);
@@ -136,6 +160,135 @@ export default function CertificateGeneratorPage() {
     const copyAllUrls = () => {
         const allUrls = generatedUrls.map((u) => `${u.achieverName}: ${u.url}`).join('\n');
         navigator.clipboard.writeText(allUrls);
+    };
+
+    // Render a certificate to canvas and return as blob
+    const renderCertificateToBlob = async (params: Record<string, string>): Promise<Blob> => {
+        // Open the certificate in a new window temporarily
+        const certParams = new URLSearchParams();
+        certParams.set('template', selectedTemplate);
+        Object.entries(params).forEach(([key, value]) => {
+            if (key !== 'template') {
+                certParams.set(key, value);
+            }
+        });
+
+        return new Promise((resolve, reject) => {
+            // Create an iframe to render the certificate
+            const iframe = document.createElement('iframe');
+            iframe.style.position = 'absolute';
+            iframe.style.left = '-9999px';
+            iframe.style.width = '1200px';
+            iframe.style.height = '900px';
+            document.body.appendChild(iframe);
+
+            const certUrl = `${window.location.origin}/certificate?${certParams.toString()}`;
+
+            iframe.onload = async () => {
+                try {
+                    // Wait a bit for the certificate to fully render
+                    await new Promise(r => setTimeout(r, 1000));
+
+                    // Get the certificate container from the iframe
+                    const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
+                    if (!iframeDoc) {
+                        throw new Error('Could not access iframe document');
+                    }
+
+                    const certificateElement = iframeDoc.body;
+                    if (!certificateElement) {
+                        throw new Error('Certificate element not found');
+                    }
+
+                    // Capture the certificate as canvas
+                    const canvas = await html2canvas(certificateElement, {
+                        scale: 2,
+                        backgroundColor: '#ffffff',
+                        logging: false,
+                        useCORS: true,
+                        allowTaint: true,
+                    });
+
+                    // Convert canvas to blob
+                    canvas.toBlob((blob) => {
+                        document.body.removeChild(iframe);
+                        if (blob) {
+                            resolve(blob);
+                        } else {
+                            reject(new Error('Failed to create blob from canvas'));
+                        }
+                    }, 'image/png');
+                } catch (error) {
+                    document.body.removeChild(iframe);
+                    reject(error);
+                }
+            };
+
+            iframe.onerror = () => {
+                document.body.removeChild(iframe);
+                reject(new Error('Failed to load certificate'));
+            };
+
+            iframe.src = certUrl;
+        });
+    };
+
+    // Generate all certificates and download as zip
+    const handleGenerateAndDownloadZip = async () => {
+        if (certificateData.length === 0) {
+            setCsvError('No certificates to generate');
+            return;
+        }
+
+        setIsGenerating(true);
+        setGenerationProgress('Starting generation...');
+
+        try {
+            const zip = new JSZip();
+            const certificatesFolder = zip.folder('certificates');
+
+            if (!certificatesFolder) {
+                throw new Error('Failed to create certificates folder');
+            }
+
+            // Generate each certificate
+            for (let i = 0; i < certificateData.length; i++) {
+                const cert = certificateData[i];
+                setGenerationProgress(`Generating certificate ${i + 1} of ${certificateData.length} (${cert.achieverName})...`);
+
+                try {
+                    const blob = await renderCertificateToBlob(cert.params);
+                    const filename = `${cert.achieverName.replace(/[^a-z0-9]/gi, '_')}_certificate.png`;
+                    certificatesFolder.file(filename, blob);
+                } catch (error) {
+                    console.error(`Failed to generate certificate for ${cert.achieverName}:`, error);
+                    setCsvError(`Failed to generate certificate for ${cert.achieverName}`);
+                }
+            }
+
+            // Generate and download the zip file
+            setGenerationProgress('Creating zip file...');
+            const zipBlob = await zip.generateAsync({ type: 'blob' });
+
+            const url = URL.createObjectURL(zipBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `certificates_${selectedTemplate}_${new Date().toISOString().split('T')[0]}.zip`;
+            link.click();
+            URL.revokeObjectURL(url);
+
+            setGenerationProgress('Complete! Download started.');
+            setTimeout(() => {
+                setIsGenerating(false);
+                setGenerationProgress('');
+            }, 2000);
+
+        } catch (error) {
+            console.error('Error generating certificates:', error);
+            setCsvError(`Error generating certificates: ${error.message}`);
+            setIsGenerating(false);
+            setGenerationProgress('');
+        }
     };
 
     return (
@@ -244,15 +397,32 @@ export default function CertificateGeneratorPage() {
                         {generatedUrls.length > 0 && (
                             <div className={styles.results}>
                                 <div className={styles.resultsHeader}>
-                                    <h3>Generated URLs ({generatedUrls.length})</h3>
-                                    <button
-                                        type="button"
-                                        onClick={copyAllUrls}
-                                        className={styles.smallButton}
-                                    >
-                                        📋 Copy All
-                                    </button>
+                                    <h3>Generated Certificates ({generatedUrls.length})</h3>
+                                    <div className={styles.buttonGroup}>
+                                        <button
+                                            type="button"
+                                            onClick={handleGenerateAndDownloadZip}
+                                            disabled={isGenerating}
+                                            className={styles.primaryButton}
+                                        >
+                                            {isGenerating ? '⏳ Generating...' : '📦 Download All as ZIP'}
+                                        </button>
+                                        <button
+                                            type="button"
+                                            onClick={copyAllUrls}
+                                            className={styles.secondaryButton}
+                                        >
+                                            📋 Copy All URLs
+                                        </button>
+                                    </div>
                                 </div>
+
+                                {generationProgress && (
+                                    <div className={styles.progress}>
+                                        {generationProgress}
+                                    </div>
+                                )}
+
                                 <ul className={styles.urlList}>
                                     {generatedUrls.map((item) => (
                                         <li key={item.id} className={styles.urlItem}>
