@@ -19,7 +19,12 @@ Try to follow the exisitng style and strucute, if it makes sense to add your con
 
 ## Getting Started
 
-To contribute to this project, you'll need to have a GitHub account. If you don't have one yet, you can sign up for free at [github.com](https://github.com).
+To contribute to this project, you'll need to have a few things:
+- GitHub account - If you don't have one yet, you can sign up for free at [github.com](https://github.com).
+- `git` installed on your local machine - You can download it from [git-scm.com](https://git-scm.com/).
+- A code editor - We recommend using [Visual Studio Code](https://code.visualstudio.com/).
+- An SSH key set up with your GitHub account for secure authentication. You can follow GitHub's guide on [generating SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+- `npm` installed on your local machine. You can download it from [nodejs.org](https://nodejs.org/).
 
 Once you have a GitHub account, you can [fork the repository](https://github.com/Educate4pt0/Educate4pt0.github.io/fork) to create your own copy of the project. This allows you to make changes without affecting the original repository.
 
@@ -65,3 +70,46 @@ chmod +x .githooks/pre-commit
 ```
 
 The hook enforces the `<category>/<description>` branch naming pattern (`tutorials`, `guides`, or `admin` categories with hyphenated descriptions) and runs `npm run typecheck` followed by `npm run build` to match the deployment pipeline.
+
+## Making Changes
+
+You can now make changes to the codebase using your preferred code editor. Once you've made your changes, you can stage them for commit using the following command:
+
+```bash
+git add <path-to-file1> <path-to-file2> ...
+```
+
+Replace `<path-to-file1>`, `<path-to-file2>`, etc. with the paths to the files you've modified or added.
+
+After staging your changes, commit them with a descriptive message:
+
+```bash
+git commit -m "Add <description> to <category>"
+```
+
+Lastly, push your changes to your forked repository:
+
+```bash
+git push origin <your-branch-name>
+```
+
+This is the branch you created earlier for your contribution.
+
+## Creating a Pull Request
+
+Once you've pushed your changes, you can create a pull request (PR) to propose your changes to the main repository. Go to the original repository on GitHub, and you'll see a prompt to create a pull request from your recently pushed branch. Click on the "Compare & pull request" button.
+
+Fill out the PR template with relevant information about your contribution, including a clear description of the changes you've made and any additional context that may be helpful for reviewers.
+
+Once you've filled out the PR template, click on the "Create pull request" button to submit your PR for review.
+
+## Review Process
+
+Your pull request will be reviewed by maintainers of the project. They may provide feedback or request changes before merging your contribution. Be responsive to feedback and make any necessary adjustments to your PR.
+
+Once your pull request has been approved and merged, your contribution will be part of the main codebase! Congratulations, and thank you for contributing to the Educate4.0 project!
+
+## Additional Resources
+
+- [GitHub Docs: Fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
+- [GitHub Docs: Creating a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
