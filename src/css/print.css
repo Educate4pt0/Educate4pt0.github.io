@@ -200,4 +200,26 @@
   [data-quiz-option] input[type="checkbox"]:checked {
     accent-color: #000;
   }
+
+  /* Certificate-specific print styles */
+  /* Hide all navigation and UI chrome when printing certificates */
+  .certificate-page-layout nav.navbar,
+  .certificate-page-layout footer.footer,
+  .certificate-page-layout .theme-doc-sidebar-container,
+  .certificate-page-layout aside,
+  .certificate-page-layout .pagination-nav {
+    display: none !important;
+  }
+
+  /* Make certificate content take full page */
+  .certificate-page-layout main {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+  }
+
+  .certificate-page-layout .container {
+    max-width: none !important;
+    padding: 0 !important;
+  }
 }

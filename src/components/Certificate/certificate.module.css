@@ -1,0 +1,106 @@
+/* Certificate Renderer Container Styles */
+
+.certificateContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* Print Controls Section */
+.printControls {
+  margin-bottom: 2rem;
+  text-align: center;
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+}
+
+.printButton {
+  background: var(--steel-azure-600);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.printButton:hover {
+  background: var(--steel-azure-700);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.printButton:active {
+  transform: translateY(0);
+}
+
+.printTip {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  color: var(--lavender-grey-700, #555);
+  line-height: 1.5;
+}
+
+/* Certificate Content Section */
+.certificateContent {
+  width: 100%;
+  max-width: 297mm; /* A4 landscape width */
+  aspect-ratio: 297 / 210; /* A4 landscape ratio */
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Print-specific styles */
+@media print {
+  .certificateContainer {
+    padding: 0;
+    min-height: auto;
+    background: none;
+  }
+
+  .printControls {
+    display: none !important;
+  }
+
+  .certificateContent {
+    width: 297mm;
+    height: 210mm;
+    max-width: none;
+    box-shadow: none;
+    border-radius: 0;
+    page-break-after: always;
+  }
+}
+
+/* Responsive preview on smaller screens */
+@media screen and (max-width: 1400px) {
+  .certificateContent {
+    max-width: 90vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .certificateContainer {
+    padding: 1rem;
+  }
+
+  .printControls {
+    padding: 1rem;
+  }
+
+  .certificateContent {
+    max-width: 95vw;
+  }
+}
